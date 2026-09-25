@@ -1,4 +1,4 @@
-from backend.exceptions.excecoes import NomeInvalidoError
+from backend.exceptions.excecoes import CampoObrigatorioVazioError
 
 class Produto:
     """Entidade de domínio que valida os atributos do produto."""
@@ -16,43 +16,43 @@ class Produto:
     def valida_nome(self, nome):
         """Valida o nome do produto."""
         if nome == "" or nome is None:
-            raise NomeInvalidoError("Nome não pode ser vazio")
+            raise CampoObrigatorioVazioError("Nome não pode ser vazio")
         return nome
 
     def valida_preco(self, preco):
         """Valida o preço do produto."""
         if preco is None:
-            raise ValueError("Preço não pode ser vazio")
+            raise CampoObrigatorioVazioError("O valor do produto não deve ser None")
         return preco
 
     def valida_quant_estoque(self, quant_estoque):
         """Valida a quantidade em estoque."""
         if quant_estoque is None:
-            raise ValueError("Quantidade em estoque não pode ser vazia")
+            raise CampoObrigatorioVazioError("O estoque não pode ser None")
         return quant_estoque
 
     def valida_validade(self, validade):
         """Valida o campo de validade do produto."""
         if validade is None:
-            raise ValueError("Validade não pode ser vazia")
+            raise CampoObrigatorioVazioError("Validade não pode ser vazia")
         return validade
 
     def valida_codigo_barras(self, codigo_barras):
         """Valida o código de barras."""
         if codigo_barras is None:
-            raise ValueError("Código de barras não pode ser vazio")
+            raise CampoObrigatorioVazioError("Código de barras não pode ser vazio")
         return codigo_barras
 
     def valida_categoria(self, categoria):
         """Valida a categoria do produto."""
         if categoria == "" or categoria is None:
-            raise ValueError("Categoria não pode ser vazia")
+            raise CampoObrigatorioVazioError("Categoria não pode ser vazia")
         return categoria
 
     def valida_peso(self, peso):
         """Valida o peso do produto."""
         if peso is None:
-            raise ValueError("Peso não pode ser vazio")
+            raise CampoObrigatorioVazioError("Peso não pode ser vazio")
         return peso
 
     @property
